@@ -46,5 +46,13 @@ fn main() {
 fn setup_simulation(mut commands: Commands, mut images: ResMut<Assets<Image>>) {
     PixelBufferBuilder::new()
         .with_size(MAP_DIMS)
-        .spawn(&mut commands, &mut images);
+        .spawn(&mut commands, &mut images)
+        .edit_frame(|frame| {
+            frame.per_pixel(|pos, _| {
+                match (pos.x + pos.y) % 2 {
+                    0 => Color::hsl(0., 0., 0.),
+                    _ => Color::hsl(0., 0., 0.05),
+                }
+            })
+        });
 }
