@@ -12,7 +12,17 @@ pub struct GameMap([u16; 15]);
 impl GameMap {
 }
 
+fn check_if_pos_inbounds(pos: &UVec2) {
+    if
+        MAP_DIMS.size.x < pos.x ||
+        MAP_DIMS.size.y < pos.y
+    {
+        panic!("Trying to check for an out-of-bounds position!");
+    }
+}
+
 fn flatten_pos(pos: UVec2) -> usize {
+    check_if_pos_inbounds(&pos);
     ((pos.y * MAP_DIMS.size.x) + pos.x) as usize
 }
 
