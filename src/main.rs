@@ -6,8 +6,6 @@ const MAP_DIMS: PixelBufferSize = PixelBufferSize {
     pixel_size: UVec2::new(20, 20), 
 };
 
-const _ARRAY_LENGTH: usize = (MAP_DIMS.size.x * MAP_DIMS.size.y) as usize;
-
 const UPDATE_RATE: f64 = 1.;
 
 fn main() {
