@@ -12,4 +12,17 @@ mod tests {
             assert_eq!(num, 0);
         }
     }
+
+    #[test]
+    fn bit_shifts() {
+        let num = 0b01100101;
+        assert_eq!(num & 1, 1);
+        assert_eq!(num >> 1 & 1, 0);
+        assert_eq!(num >> 2 & 1, 1);
+        assert_eq!(num >> 3 & 1, 0);
+        assert_eq!(num >> 4 & 1, 0);
+        assert_eq!(num >> 5 & 1, 1);
+        assert_eq!(num >> 6 & 1, 1);
+        assert_eq!(num >> 7 & 1, 0);
+    }
 }
