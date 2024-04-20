@@ -2,7 +2,7 @@ use bevy::{prelude::*, window::{WindowMode, WindowResolution}};
 use bevy_pixel_buffer::prelude::*;
 
 const MAP_DIMS: PixelBufferSize = PixelBufferSize {
-    size: UVec2::new(15, 15),
+    size: UVec2::new(10, 20),
     pixel_size: UVec2::new(20, 20), 
 };
 
