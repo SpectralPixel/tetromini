@@ -21,7 +21,7 @@ fn check_if_pos_inbounds(pos: &UVec2) {
     }
 }
 
-fn flatten_pos(pos: UVec2) -> usize {
+fn flatten_pos(pos: &UVec2) -> usize {
     check_if_pos_inbounds(&pos);
     ((pos.y * MAP_DIMS.size.x) + pos.x) as usize
 }
@@ -56,9 +56,9 @@ mod tests {
 
     #[test]
     fn flatten_some_positions() {
-        assert_eq!(0, flatten_pos(UVec2::ZERO));
-        assert_eq!(3, flatten_pos(UVec2::new(3, 0)));
-        assert_eq!(13, flatten_pos(UVec2::new(3, 1)));
-        assert_eq!(47, flatten_pos(UVec2::new(7, 4)));
+        assert_eq!(0, flatten_pos(&UVec2::ZERO));
+        assert_eq!(3, flatten_pos(&UVec2::new(3, 0)));
+        assert_eq!(13, flatten_pos(&UVec2::new(3, 1)));
+        assert_eq!(47, flatten_pos(&UVec2::new(7, 4)));
     }
 }
