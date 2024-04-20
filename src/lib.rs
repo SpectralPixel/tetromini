@@ -10,14 +10,18 @@ pub const MAP_DIMS: PixelBufferSize = PixelBufferSize {
 pub struct GameMap([u16; 15]);
 
 impl GameMap {
-    fn flatten_pos(pos: UVec2) -> usize {
-        ((pos.y * MAP_DIMS.size.x) + pos.x) as usize
-    }
+}
+
+fn flatten_pos(pos: UVec2) -> usize {
+    ((pos.y * MAP_DIMS.size.x) + pos.x) as usize
 }
 
 #[cfg(test)]
 mod tests {
+    use bevy::math::UVec2;
+
     use crate::GameMap;
+    use crate::flatten_pos;
 
     #[test]
     fn create_empty_map() {
@@ -38,5 +42,13 @@ mod tests {
         assert_eq!(num >> 5 & 1, 1);
         assert_eq!(num >> 6 & 1, 1);
         assert_eq!(num >> 7 & 1, 0);
+    }
+
+    #[test]
+    fn flatten_some_positions() {
+        assert_eq!(0, flatten_pos(UVec2::ZERO));
+        assert_eq!(3, flatten_pos(UVec2::new(3, 0)));
+        assert_eq!(13, flatten_pos(UVec2::new(3, 1)));
+        assert_eq!(47, flatten_pos(UVec2::new(7, 4)));
     }
 }
