@@ -9,6 +9,12 @@ pub const MAP_DIMS: PixelBufferSize = PixelBufferSize {
 #[derive(Default)]
 pub struct GameMap([u16; 15]);
 
+impl GameMap {
+    fn flatten_pos(pos: UVec2) -> usize {
+        ((pos.y * MAP_DIMS.size.x) + pos.x) as usize
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::GameMap;
