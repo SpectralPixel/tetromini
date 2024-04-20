@@ -1,3 +1,11 @@
+use bevy::math::UVec2;
+use bevy_pixel_buffer::prelude::*;
+
+pub const MAP_DIMS: PixelBufferSize = PixelBufferSize {
+    size: UVec2::new(10, 20),
+    pixel_size: UVec2::new(20, 20), 
+};
+
 #[derive(Default)]
 pub struct GameMap([u16; 15]);
 
