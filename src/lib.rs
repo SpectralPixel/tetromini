@@ -61,4 +61,13 @@ mod tests {
         assert_eq!(13, flatten_pos(&UVec2::new(3, 1)));
         assert_eq!(47, flatten_pos(&UVec2::new(7, 4)));
     }
+
+    #[test]
+    fn bit_manipulation() {
+        let number = 0b1010_1010;
+        let mask = 0b0011_0011;
+        assert_eq!(number | mask, 0b1011_1011);
+        assert_eq!(number & mask, 0b0010_0010);
+        assert_eq!(number ^ mask, 0b1001_1001);
+    }
 }
