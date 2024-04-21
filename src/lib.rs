@@ -22,7 +22,7 @@ fn check_if_pos_inbounds(pos: &UVec2) {
 }
 
 fn flatten_pos(pos: &UVec2) -> usize {
-    check_if_pos_inbounds(&pos);
+    check_if_pos_inbounds(pos);
     ((pos.y * MAP_DIMS.size.x) + pos.x) as usize
 }
 
